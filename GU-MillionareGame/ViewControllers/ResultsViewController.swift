@@ -9,17 +9,24 @@ import UIKit
 
 class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
+    
+    //MARK: - Variables
+    var game = Game.shared
+    var resultsArray = Game.shared.getResults()
+        
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
+        
         // Do any additional setup after loading the view.
     }
     
-
+    
     /*
     // MARK: - Navigation
 
@@ -32,11 +39,19 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //MARK: - DataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        return resultsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ResultsTableViewCell", for: indexPath) as! ResultsTableViewCell
+        
+        
+        cell.title.text = "Счет: \(resultsArray[indexPath.row].score)"
+        cell.subtitle.text = "Вопросов пройдено: \(resultsArray[indexPath.row].questionsPassed)"
+        
+//        cell?.textLabel?.text = "Счет: \(resultsArray[indexPath.row].score)"
+//        cell?.textLabel?.attributedText = NSAttributedString(string: "Вопросов пройдено: \(resultsArray[indexPath.row].questionsPassed)")
+        
         return cell
     }
 }

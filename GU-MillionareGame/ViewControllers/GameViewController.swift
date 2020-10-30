@@ -73,9 +73,10 @@ class GameViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let destination = storyboard.instantiateViewController(identifier: "ViewController") as? ViewController else { return }
         let result = Results(score: score, questionsPassed: questionsCount+1)
-        game.result.append(result)
-        
-        show(destination, sender: nil)
+        game.addToResults(results: result)
+        dismiss(animated: true) {
+            self.show(destination, sender: nil)
+        }
     }
     
     func checkAnswer(answer: UIButton, question: Question) {

@@ -9,11 +9,17 @@ import UIKit
 
 class Game {
     
-    static var shared: Game = {
-        let instance = Game()
-        return instance
-    }()
-    var result: [Results] = []
+    static let shared = Game()
+    private var results: [Results] = []
+    var gameSession: GameSession?
 
     private init() {}
+    
+    func addToResults(results: Results) {
+        self.results.append(results)
+    }
+    
+    func getResults() -> [Results] {
+        return results
+    }
 }

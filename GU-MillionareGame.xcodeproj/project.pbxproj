@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		763DDBEE254C37450089AAB5 /* GameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763DDBED254C37450089AAB5 /* GameSession.swift */; };
+		763DDBF7254C3A9C0089AAB5 /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763DDBF6254C3A9C0089AAB5 /* ResultsTableViewCell.swift */; };
 		76BBAC4C254991190085790A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BBAC4B254991190085790A /* AppDelegate.swift */; };
 		76BBAC4E254991190085790A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BBAC4D254991190085790A /* SceneDelegate.swift */; };
 		76BBAC50254991190085790A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BBAC4F254991190085790A /* ViewController.swift */; };
@@ -19,7 +21,7 @@
 		76BBAC92254AC2020085790A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BBAC91254AC2020085790A /* GameViewController.swift */; };
 		76BBAC97254AD0780085790A /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BBAC96254AD0780085790A /* ResultsViewController.swift */; };
 		76BBACA4254C2AB00085790A /* GameSingletone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BBACA3254C2AB00085790A /* GameSingletone.swift */; };
-		76BBACAA254C2C180085790A /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BBACA9254C2C180085790A /* Results.swift */; };
+		76BBACAA254C2C180085790A /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BBACA9254C2C180085790A /* Result.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		763DDBED254C37450089AAB5 /* GameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSession.swift; sourceTree = "<group>"; };
+		763DDBF6254C3A9C0089AAB5 /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
 		76BBAC48254991190085790A /* GU-MillionareGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GU-MillionareGame.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76BBAC4B254991190085790A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76BBAC4D254991190085790A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,7 +62,7 @@
 		76BBAC91254AC2020085790A /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		76BBAC96254AD0780085790A /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		76BBACA3254C2AB00085790A /* GameSingletone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSingletone.swift; sourceTree = "<group>"; };
-		76BBACA9254C2C180085790A /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
+		76BBACA9254C2C180085790A /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		763DDBF5254C3A7A0089AAB5 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				763DDBF6254C3A9C0089AAB5 /* ResultsTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		76BBAC3F254991180085790A = {
 			isa = PBXGroup;
 			children = (
@@ -109,8 +121,9 @@
 		76BBAC4A254991190085790A /* GU-MillionareGame */ = {
 			isa = PBXGroup;
 			children = (
-				76BBAC8D254AC18C0085790A /* ViewControllers */,
 				76BBAC4B254991190085790A /* AppDelegate.swift */,
+				76BBAC8D254AC18C0085790A /* ViewControllers */,
+				763DDBF5254C3A7A0089AAB5 /* Cell */,
 				76BBAC81254992E90085790A /* Model */,
 				76BBACA8254C2AE30085790A /* Extensions */,
 				76BBAC4D254991190085790A /* SceneDelegate.swift */,
@@ -145,7 +158,8 @@
 			children = (
 				76BBAC82254993060085790A /* Question+Factory.swift */,
 				76BBACA3254C2AB00085790A /* GameSingletone.swift */,
-				76BBACA9254C2C180085790A /* Results.swift */,
+				76BBACA9254C2C180085790A /* Result.swift */,
+				763DDBED254C37450089AAB5 /* GameSession.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -299,11 +313,13 @@
 			files = (
 				76BBAC92254AC2020085790A /* GameViewController.swift in Sources */,
 				76BBACA4254C2AB00085790A /* GameSingletone.swift in Sources */,
-				76BBACAA254C2C180085790A /* Results.swift in Sources */,
+				76BBACAA254C2C180085790A /* Result.swift in Sources */,
 				76BBAC50254991190085790A /* ViewController.swift in Sources */,
+				763DDBF7254C3A9C0089AAB5 /* ResultsTableViewCell.swift in Sources */,
 				76BBAC83254993060085790A /* Question+Factory.swift in Sources */,
 				76BBAC4C254991190085790A /* AppDelegate.swift in Sources */,
 				76BBAC4E254991190085790A /* SceneDelegate.swift in Sources */,
+				763DDBEE254C37450089AAB5 /* GameSession.swift in Sources */,
 				76BBAC97254AD0780085790A /* ResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
