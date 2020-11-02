@@ -7,7 +7,8 @@
 
 import UIKit
 
-struct GameSession {
-    var questionsPassed: Int
-    var questionsCount: Int
+class GameSession {
+    var score: Int = 0
+    var questionsPassed: Int = 0
+    var questionsCount: Int = 0
 }

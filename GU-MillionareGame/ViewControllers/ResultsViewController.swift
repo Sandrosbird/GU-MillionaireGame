@@ -13,15 +13,16 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     
     //MARK: - Variables
-    var game = Game.shared
+//    var result: GameSession!
     var resultsArray = Game.shared.getResults()
+    weak var delegate: GameViewControllerDelegate?
         
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
+//        didEndGame(with: result)
         
         // Do any additional setup after loading the view.
     }
@@ -44,14 +45,8 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ResultsTableViewCell", for: indexPath) as! ResultsTableViewCell
-        
-        
         cell.title.text = "Счет: \(resultsArray[indexPath.row].score)"
-        cell.subtitle.text = "Вопросов пройдено: \(resultsArray[indexPath.row].questionsPassed)"
-        
-//        cell?.textLabel?.text = "Счет: \(resultsArray[indexPath.row].score)"
-//        cell?.textLabel?.attributedText = NSAttributedString(string: "Вопросов пройдено: \(resultsArray[indexPath.row].questionsPassed)")
-        
+        cell.subtitle.text = "Вопросов: пройдено \(resultsArray[indexPath.row].questionsPassed); всего: \(resultsArray[indexPath.row].questionsCount) "        
         return cell
     }
 }

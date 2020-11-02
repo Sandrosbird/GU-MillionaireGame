@@ -7,35 +7,24 @@
 
 import UIKit
 
+protocol GameViewControllerDelegate: AnyObject {
+    func didEndGame(withResult result: GameSession)
+}
+
 class GameViewController: UIViewController {
     
     //MARK: - Outlets
     @IBOutlet weak var questionTitle: UILabel!
-    
     @IBOutlet weak var questionText: UILabel!
-    
     @IBOutlet weak var firstAnswer: UIButton!
-    @IBAction func firstAnswerTapped(_ sender: UIButton) {
-        checkAnswer(answer: firstAnswer, question: questionsArray[questionsCount])
-    }
-    
     @IBOutlet weak var secondAnswer: UIButton!
-    @IBAction func secondAnswerTapped(_ sender: UIButton) {
-        checkAnswer(answer: secondAnswer, question: questionsArray[questionsCount])
-    }
-    
     @IBOutlet weak var thirdAnswer: UIButton!
-    @IBAction func thirdAnswerTapped(_ sender: UIButton) {
-        checkAnswer(answer: thirdAnswer, question: questionsArray[questionsCount])
-    }
-    
     @IBOutlet weak var fourthAnswer: UIButton!
-    @IBAction func fourthAnswerTapped(_ sender: UIButton) {
-        checkAnswer(answer: fourthAnswer, question: questionsArray[questionsCount])
-        
-    }
     
     //MARK: - Variables
+    let session = GameSession()
+    weak var gameViewControllerDelegate: GameViewControllerDelegate?
+    
     let game = Game.shared
     let questionsArray = QuestionsFactory.createQuestions()
     var questionsCount = 0
@@ -58,6 +47,21 @@ class GameViewController: UIViewController {
     }
     */
     
+    //MARK: - Actions
+    @IBAction func firstAnswerTapped(_ sender: UIButton) {
+        checkAnswer(answer: firstAnswer, question: questionsArray[questionsCount])
+    }
+    @IBAction func secondAnswerTapped(_ sender: UIButton) {
+        checkAnswer(answer: secondAnswer, question: questionsArray[questionsCount])
+    }
+    @IBAction func thirdAnswerTapped(_ sender: UIButton) {
+        checkAnswer(answer: thirdAnswer, question: questionsArray[questionsCount])
+    }
+    @IBAction func fourthAnswerTapped(_ sender: UIButton) {
+        checkAnswer(answer: fourthAnswer, question: questionsArray[questionsCount])
+    }
+    
+    
     //MARK: - Helpers
     func configureAnswers(question: Question) {
         let count = questionsCount + 1
@@ -70,19 +74,25 @@ class GameViewController: UIViewController {
     }
     
     func gameEnded() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let destination = storyboard.instantiateViewController(identifier: "ViewController") as? ViewController else { return }
-        let result = Results(score: score, questionsPassed: questionsCount+1)
-        game.addToResults(results: result)
-        dismiss(animated: true) {
-            self.show(destination, sender: nil)
-        }
+        session.questionsCount = questionsArray.count
+        session.questionsPassed = questionsCount
+        session.score = score
+    
+        gameViewControllerDelegate?.didEndGame(withResult: session)
+//        dismiss(animated: true) {
+//            self.show(destination, sender: nil)
+//        }
     }
     
     func checkAnswer(answer: UIButton, question: Question) {
         if answer.titleLabel?.text == question.correctAnswer {
             score += 10
             questionsCount += 1
+            
+            if questionsCount >= questionsArray.count {
+                gameEnded()
+                return
+            }
             configureAnswers(question: questionsArray[questionsCount])
         } else {
             gameEnded()

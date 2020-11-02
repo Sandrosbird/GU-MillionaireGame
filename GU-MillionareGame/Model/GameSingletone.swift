@@ -10,16 +10,16 @@ import UIKit
 class Game {
     
     static let shared = Game()
-    private var results: [Results] = []
+    private var results: [GameSession] = []
     var gameSession: GameSession?
 
     private init() {}
     
-    func addToResults(results: Results) {
+    func addToResults(results: GameSession){
         self.results.append(results)
     }
     
-    func getResults() -> [Results] {
+    func getResults() -> [GameSession] {
         return results
     }
 }
