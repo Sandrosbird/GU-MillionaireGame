@@ -16,10 +16,8 @@ class GameViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var questionTitle: UILabel!
     @IBOutlet weak var questionText: UILabel!
-    @IBOutlet weak var firstAnswer: UIButton!
-    @IBOutlet weak var secondAnswer: UIButton!
-    @IBOutlet weak var thirdAnswer: UIButton!
-    @IBOutlet weak var fourthAnswer: UIButton!
+    @IBOutlet var answerButtons: [UIButton]!
+    
     
     //MARK: - Variables
     let session = GameSession()
@@ -49,16 +47,16 @@ class GameViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func firstAnswerTapped(_ sender: UIButton) {
-        checkAnswer(answer: firstAnswer, question: questionsArray[questionsCount])
+        checkAnswer(answer: answerButtons[0], question: questionsArray[questionsCount])
     }
     @IBAction func secondAnswerTapped(_ sender: UIButton) {
-        checkAnswer(answer: secondAnswer, question: questionsArray[questionsCount])
+        checkAnswer(answer: answerButtons[1], question: questionsArray[questionsCount])
     }
     @IBAction func thirdAnswerTapped(_ sender: UIButton) {
-        checkAnswer(answer: thirdAnswer, question: questionsArray[questionsCount])
+        checkAnswer(answer: answerButtons[2], question: questionsArray[questionsCount])
     }
     @IBAction func fourthAnswerTapped(_ sender: UIButton) {
-        checkAnswer(answer: fourthAnswer, question: questionsArray[questionsCount])
+        checkAnswer(answer: answerButtons[3], question: questionsArray[questionsCount])
     }
     
     
@@ -67,10 +65,15 @@ class GameViewController: UIViewController {
         let count = questionsCount + 1
         questionTitle.text = "Question \(count)"
         questionText.text = question.question
-        firstAnswer.setTitle(question.answers[0], for: .normal)
-        secondAnswer.setTitle(question.answers[1], for: .normal)
-        thirdAnswer.setTitle(question.answers[2], for: .normal)
-        fourthAnswer.setTitle(question.answers[3], for: .normal) 
+        
+        for (index, button) in answerButtons.enumerated() {
+            button.setTitle(question.answers[index], for: .normal)
+        }
+        
+//        firstAnswer.setTitle(question.answers[0], for: .normal)
+//        secondAnswer.setTitle(question.answers[1], for: .normal)
+//        thirdAnswer.setTitle(question.answers[2], for: .normal)
+//        fourthAnswer.setTitle(question.answers[3], for: .normal)
     }
     
     func gameEnded() {

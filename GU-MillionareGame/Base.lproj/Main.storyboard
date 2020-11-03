@@ -43,6 +43,14 @@
                                     <segue destination="eYR-I6-Cle" kind="show" identifier="startGame" id="Y3g-ko-Deb"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="30L-Mk-8dd">
+                                <rect key="frame" x="142" y="86" width="131" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -130,12 +138,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="cxR-Q3-aQa"/>
                     <connections>
-                        <outlet property="firstAnswer" destination="oUg-DP-GZV" id="DVj-CD-EPo"/>
-                        <outlet property="fourthAnswer" destination="jmP-Db-BeW" id="LaK-aR-dJx"/>
                         <outlet property="questionText" destination="kF0-j1-uSh" id="FyW-Iz-jJO"/>
                         <outlet property="questionTitle" destination="5Fi-2F-rgu" id="T7N-HK-60a"/>
-                        <outlet property="secondAnswer" destination="CVa-Wv-Ghv" id="8DE-D8-tta"/>
-                        <outlet property="thirdAnswer" destination="MFX-Na-xYQ" id="iuM-Aj-PMW"/>
+                        <outletCollection property="answerButtons" destination="oUg-DP-GZV" collectionClass="NSMutableArray" id="kcI-CN-dJj"/>
+                        <outletCollection property="answerButtons" destination="CVa-Wv-Ghv" collectionClass="NSMutableArray" id="0nb-gY-wHq"/>
+                        <outletCollection property="answerButtons" destination="MFX-Na-xYQ" collectionClass="NSMutableArray" id="eaN-Dt-v0z"/>
+                        <outletCollection property="answerButtons" destination="jmP-Db-BeW" collectionClass="NSMutableArray" id="ib3-D4-EFk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r1H-BZ-JLc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
