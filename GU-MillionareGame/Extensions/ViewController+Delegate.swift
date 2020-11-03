@@ -7,8 +7,10 @@
 
 import UIKit
 
-//extension ViewController: GameViewControllerDelegate {
-//    func didEndGame(withResult result: GameSession) {
-//        self.result = result
-//    }
-//}
+extension ViewController: GameViewControllerDelegate {
+    func didEndGame(withResult result: GameSession) {
+        viewControllerDelegate?.didEndGame(withResult: result)
+        Game.shared.addToResults(results: result)
+        dismiss(animated: true, completion: nil)
+    }
+}

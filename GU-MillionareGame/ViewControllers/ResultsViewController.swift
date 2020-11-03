@@ -22,11 +22,19 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         tableView.delegate = self
         tableView.dataSource = self
-//        didEndGame(with: result)
-        
-        // Do any additional setup after loading the view.
     }
     
+    //MARK: - DataSource
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return resultsArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ResultsTableViewCell", for: indexPath) as! ResultsTableViewCell
+        cell.title.text = "Счет: \(resultsArray[indexPath.row].score)"
+        cell.subtitle.text = "Вопросов: пройдено \(resultsArray[indexPath.row].questionsPassed); всего: \(resultsArray[indexPath.row].questionsCount) "
+        return cell
+    }
     
     /*
     // MARK: - Navigation
@@ -37,16 +45,4 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Pass the selected object to the new view controller.
     }
     */
-    
-    //MARK: - DataSource
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return resultsArray.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ResultsTableViewCell", for: indexPath) as! ResultsTableViewCell
-        cell.title.text = "Счет: \(resultsArray[indexPath.row].score)"
-        cell.subtitle.text = "Вопросов: пройдено \(resultsArray[indexPath.row].questionsPassed); всего: \(resultsArray[indexPath.row].questionsCount) "        
-        return cell
-    }
 }

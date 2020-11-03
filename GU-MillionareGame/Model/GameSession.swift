@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GameSession {
+class GameSession: Codable {
     var score: Int = 0
     var questionsPassed: Int = 0
     var questionsCount: Int = 0

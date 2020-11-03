@@ -10,10 +10,17 @@ import UIKit
 class Game {
     
     static let shared = Game()
-    private var results: [GameSession] = []
+    private (set) var results: [GameSession] {
+        didSet {
+            gameSessionCaretaker.save(records: self.results)
+        }
+    }
     var gameSession: GameSession?
+    private let gameSessionCaretaker = GameSessionCaretaker()
 
-    private init() {}
+    private init() {
+        self.results = gameSessionCaretaker.retrieveRecords()
+    }
     
     func addToResults(results: GameSession){
         self.results.append(results)
