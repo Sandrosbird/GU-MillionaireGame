@@ -24,6 +24,9 @@
 		76BBACAA254C2C180085790A /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BBACA9254C2C180085790A /* Result.swift */; };
 		76D3231B25500E31007C4B82 /* ViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D3231A25500E31007C4B82 /* ViewController+Delegate.swift */; };
 		76D3232725513ACB007C4B82 /* GameSessionCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D3232625513ACB007C4B82 /* GameSessionCaretaker.swift */; };
+		76D323332551541C007C4B82 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D323322551541C007C4B82 /* Order.swift */; };
+		76D3233B2552A023007C4B82 /* DirectQuestionsStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D3233A2552A023007C4B82 /* DirectQuestionsStrategy.swift */; };
+		76D323402552A1FF007C4B82 /* RandomQuestionsStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D3233F2552A1FF007C4B82 /* RandomQuestionsStrategy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,9 @@
 		76BBACA9254C2C180085790A /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		76D3231A25500E31007C4B82 /* ViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Delegate.swift"; sourceTree = "<group>"; };
 		76D3232625513ACB007C4B82 /* GameSessionCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSessionCaretaker.swift; sourceTree = "<group>"; };
+		76D323322551541C007C4B82 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		76D3233A2552A023007C4B82 /* DirectQuestionsStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectQuestionsStrategy.swift; sourceTree = "<group>"; };
+		76D3233F2552A1FF007C4B82 /* RandomQuestionsStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomQuestionsStrategy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +136,7 @@
 				763DDBF5254C3A7A0089AAB5 /* Cell */,
 				76BBAC81254992E90085790A /* Model */,
 				76D3232525513704007C4B82 /* Memento */,
+				76D32331255153D5007C4B82 /* Strategy */,
 				76BBACA8254C2AE30085790A /* Extensions */,
 				76BBAC4D254991190085790A /* SceneDelegate.swift */,
 				76BBAC51254991190085790A /* Main.storyboard */,
@@ -193,6 +200,16 @@
 				76D3232625513ACB007C4B82 /* GameSessionCaretaker.swift */,
 			);
 			path = Memento;
+			sourceTree = "<group>";
+		};
+		76D32331255153D5007C4B82 /* Strategy */ = {
+			isa = PBXGroup;
+			children = (
+				76D323322551541C007C4B82 /* Order.swift */,
+				76D3233A2552A023007C4B82 /* DirectQuestionsStrategy.swift */,
+				76D3233F2552A1FF007C4B82 /* RandomQuestionsStrategy.swift */,
+			);
+			path = Strategy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,12 +346,15 @@
 				76BBACA4254C2AB00085790A /* GameSingletone.swift in Sources */,
 				76BBACAA254C2C180085790A /* Result.swift in Sources */,
 				76BBAC50254991190085790A /* ViewController.swift in Sources */,
+				76D3233B2552A023007C4B82 /* DirectQuestionsStrategy.swift in Sources */,
 				763DDBF7254C3A9C0089AAB5 /* ResultsTableViewCell.swift in Sources */,
 				76BBAC83254993060085790A /* Question+Factory.swift in Sources */,
 				76BBAC4C254991190085790A /* AppDelegate.swift in Sources */,
 				76BBAC4E254991190085790A /* SceneDelegate.swift in Sources */,
 				763DDBEE254C37450089AAB5 /* GameSession.swift in Sources */,
 				76D3232725513ACB007C4B82 /* GameSessionCaretaker.swift in Sources */,
+				76D323332551541C007C4B82 /* Order.swift in Sources */,
+				76D323402552A1FF007C4B82 /* RandomQuestionsStrategy.swift in Sources */,
 				76D3231B25500E31007C4B82 /* ViewController+Delegate.swift in Sources */,
 				76BBAC97254AD0780085790A /* ResultsViewController.swift in Sources */,
 			);

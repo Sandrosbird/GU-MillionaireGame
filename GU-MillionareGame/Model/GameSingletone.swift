@@ -17,6 +17,7 @@ class Game {
     }
     var gameSession: GameSession?
     private let gameSessionCaretaker = GameSessionCaretaker()
+    
 
     private init() {
         self.results = gameSessionCaretaker.retrieveRecords()

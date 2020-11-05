@@ -24,7 +24,10 @@ class GameViewController: UIViewController {
     weak var gameViewControllerDelegate: GameViewControllerDelegate?
     
     let game = Game.shared
-    let questionsArray = QuestionsFactory.createQuestions()
+    var order: Order?
+    
+    let primalArray: [Question] = QuestionsFactory.createQuestions()
+    var questionsArray: [Question] = []
     var questionsCount = 0
     
     var score = 0
@@ -32,18 +35,12 @@ class GameViewController: UIViewController {
     //MARK: - View life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        questionsArray = {
+            configureOrder(in: primalArray, with: self.order ?? .direct)
+        }()
         configureAnswers(question: questionsArray[questionsCount])
+        questionsCount = 0
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     //MARK: - Actions
     @IBAction func firstAnswerTapped(_ sender: UIButton) {
@@ -59,21 +56,16 @@ class GameViewController: UIViewController {
         checkAnswer(answer: answerButtons[3], question: questionsArray[questionsCount])
     }
     
-    
     //MARK: - Helpers
     func configureAnswers(question: Question) {
         let count = questionsCount + 1
-        questionTitle.text = "Question \(count)"
+        
+        questionTitle.text = "Question \(count)/\(questionsArray.count)"
         questionText.text = question.question
         
         for (index, button) in answerButtons.enumerated() {
             button.setTitle(question.answers[index], for: .normal)
         }
-        
-//        firstAnswer.setTitle(question.answers[0], for: .normal)
-//        secondAnswer.setTitle(question.answers[1], for: .normal)
-//        thirdAnswer.setTitle(question.answers[2], for: .normal)
-//        fourthAnswer.setTitle(question.answers[3], for: .normal)
     }
     
     func gameEnded() {
@@ -82,9 +74,6 @@ class GameViewController: UIViewController {
         session.score = score
     
         gameViewControllerDelegate?.didEndGame(withResult: session)
-//        dismiss(animated: true) {
-//            self.show(destination, sender: nil)
-//        }
     }
     
     func checkAnswer(answer: UIButton, question: Question) {
@@ -99,6 +88,25 @@ class GameViewController: UIViewController {
             configureAnswers(question: questionsArray[questionsCount])
         } else {
             gameEnded()
+        }
+    }
+    
+    func configureOrder(in array: [Question], with order: Order) -> [Question] {
+        var mutableArray = array
+        switch order {
+        case .direct:
+            let orderedArray = mutableArray
+            return orderedArray
+        case .random:
+            var orderedArray = [Question]()
+            var count = mutableArray.count
+            while !mutableArray.isEmpty {
+                if count > 0 {
+                    orderedArray.append(mutableArray.remove(at: Int(arc4random_uniform(UInt32(count)))))
+                    count -= 1
+                }
+            }
+            return orderedArray
         }
     }
 }

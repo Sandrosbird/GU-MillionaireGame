@@ -8,7 +8,19 @@
 import UIKit
 
 class ViewController: UIViewController {
-//    weak var result: GameSession?
+    @IBOutlet weak var questionOrderControl: UISegmentedControl!
+    
+    private var selectedOrder: Order {
+        switch self.questionOrderControl.selectedSegmentIndex {
+        case 0:
+            return .direct
+        case 1:
+            return .random
+        default:
+            return .direct
+        }
+    }
+    //    weak var result: GameSession?
     @IBAction func didTapStartGame(_ sender: UIButton) {
         performSegue(withIdentifier: "startGame", sender: self)
     }
@@ -18,6 +30,7 @@ class ViewController: UIViewController {
         case "startGame":
             if let destination = segue.destination as? GameViewController {
                 destination.gameViewControllerDelegate = self
+                destination.order = selectedOrder
             }
         default:
             break

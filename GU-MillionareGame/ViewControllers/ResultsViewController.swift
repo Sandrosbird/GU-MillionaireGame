@@ -11,6 +11,13 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
+    @IBAction func deleteResults(_ sender: UIBarButtonItem) {
+        GameSessionCaretaker().deleteAll(records: resultsArray)
+        tableView.reloadData()
+    }
+    @IBAction func backButtonDidTap(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     //MARK: - Variables
 //    var result: GameSession!

@@ -33,4 +33,8 @@ final class GameSessionCaretaker {
             return []
         }
     }
+    
+    func deleteAll(records: [GameSession]) {
+        userDefaults.removeObject(forKey: key)
+    }
 }
