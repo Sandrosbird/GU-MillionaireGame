@@ -10,4 +10,5 @@ import UIKit
 struct Results {
     var score: Int
     var questionsPassed: Int
+    
 }
