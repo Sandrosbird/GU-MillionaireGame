@@ -28,7 +28,9 @@ class GameViewController: UIViewController {
     
     let primalArray: [Question] = QuestionsFactory.createQuestions()
     var questionsArray: [Question] = []
-    var questionsCount = 0
+    var questionsCount = Observable<Int>(1)
+    var count = 1
+//    var questionsCount = 1
     
     var score = 0
     
@@ -38,28 +40,28 @@ class GameViewController: UIViewController {
         questionsArray = {
             configureOrder(in: primalArray, with: self.order ?? .direct)
         }()
-        configureAnswers(question: questionsArray[questionsCount])
-        questionsCount = 0
+        configureAnswers(question: questionsArray[questionsCount.value])
+        questionsCount.addObserver(self, options: [.new, .initial]) { [weak self] (count, _) in
+            self?.count = count
+        }
     }
     
     //MARK: - Actions
     @IBAction func firstAnswerTapped(_ sender: UIButton) {
-        checkAnswer(answer: answerButtons[0], question: questionsArray[questionsCount])
+        checkAnswer(answer: answerButtons[0], question: questionsArray[count])
     }
     @IBAction func secondAnswerTapped(_ sender: UIButton) {
-        checkAnswer(answer: answerButtons[1], question: questionsArray[questionsCount])
+        checkAnswer(answer: answerButtons[1], question: questionsArray[count])
     }
     @IBAction func thirdAnswerTapped(_ sender: UIButton) {
-        checkAnswer(answer: answerButtons[2], question: questionsArray[questionsCount])
+        checkAnswer(answer: answerButtons[2], question: questionsArray[count])
     }
     @IBAction func fourthAnswerTapped(_ sender: UIButton) {
-        checkAnswer(answer: answerButtons[3], question: questionsArray[questionsCount])
+        checkAnswer(answer: answerButtons[3], question: questionsArray[count])
     }
     
     //MARK: - Helpers
     func configureAnswers(question: Question) {
-        let count = questionsCount + 1
-        
         questionTitle.text = "Question \(count)/\(questionsArray.count)"
         questionText.text = question.question
         
@@ -70,7 +72,7 @@ class GameViewController: UIViewController {
     
     func gameEnded() {
         session.questionsCount = questionsArray.count
-        session.questionsPassed = questionsCount
+        session.questionsPassed = count
         session.score = score
     
         gameViewControllerDelegate?.didEndGame(withResult: session)
@@ -79,13 +81,13 @@ class GameViewController: UIViewController {
     func checkAnswer(answer: UIButton, question: Question) {
         if answer.titleLabel?.text == question.correctAnswer {
             score += 10
-            questionsCount += 1
+            count += 1
             
-            if questionsCount >= questionsArray.count {
+            if count >= questionsArray.count {
                 gameEnded()
                 return
             }
-            configureAnswers(question: questionsArray[questionsCount])
+            configureAnswers(question: questionsArray[count])
         } else {
             gameEnded()
         }

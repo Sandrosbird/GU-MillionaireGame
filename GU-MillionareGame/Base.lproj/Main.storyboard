@@ -50,7 +50,7 @@
                                 </segments>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cfq-ag-QJa">
-                                <rect key="frame" x="40" y="778" width="101" height="33"/>
+                                <rect key="frame" x="40" y="768" width="101" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Add question"/>
                             </button>
@@ -64,12 +64,12 @@
                             <constraint firstItem="AdC-1c-RZp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UsD-09-e7C"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="cfq-ag-QJa" secondAttribute="trailing" constant="275" id="WHo-UU-LB1"/>
                             <constraint firstItem="LQW-Yo-DnV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="X5B-kR-uje"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="cfq-ag-QJa" secondAttribute="bottom" constant="51" id="aym-pX-NbK"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="cfq-ag-QJa" secondAttribute="bottom" constant="61" id="aym-pX-NbK"/>
                             <constraint firstItem="snt-nk-oh2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="elR-4B-Ywt"/>
                             <constraint firstItem="30L-Mk-8dd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="fQ6-7w-Uda"/>
                             <constraint firstItem="cfq-ag-QJa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="pKM-O6-A4B"/>
                             <constraint firstItem="AdC-1c-RZp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="piG-pq-2gu"/>
-                            <constraint firstItem="cfq-ag-QJa" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="734" id="tfa-sa-w86"/>
+                            <constraint firstItem="cfq-ag-QJa" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="724" id="tfa-sa-w86"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="snt-nk-oh2" secondAttribute="bottom" constant="323" id="vOV-AG-9QV"/>
                             <constraint firstItem="30L-Mk-8dd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="42" id="yP8-Kh-2G8"/>
                         </constraints>
