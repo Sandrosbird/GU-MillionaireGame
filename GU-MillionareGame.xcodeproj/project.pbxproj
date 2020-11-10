@@ -30,6 +30,7 @@
 		76D3235125557F27007C4B82 /* ObservableOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D3235025557F27007C4B82 /* ObservableOptions.swift */; };
 		76D3235625558090007C4B82 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D3235525558090007C4B82 /* Observable.swift */; };
 		76D3235E2558A132007C4B82 /* AddedQuestionsCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D3235D2558A131007C4B82 /* AddedQuestionsCaretaker.swift */; };
+		76D3236325597138007C4B82 /* NewQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D3236225597138007C4B82 /* NewQuestionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		76D3235025557F27007C4B82 /* ObservableOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableOptions.swift; sourceTree = "<group>"; };
 		76D3235525558090007C4B82 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		76D3235D2558A131007C4B82 /* AddedQuestionsCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedQuestionsCaretaker.swift; sourceTree = "<group>"; };
+		76D3236225597138007C4B82 /* NewQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewQuestionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 				76BBAC4F254991190085790A /* ViewController.swift */,
 				76BBAC91254AC2020085790A /* GameViewController.swift */,
 				76BBAC96254AD0780085790A /* ResultsViewController.swift */,
+				76D3236225597138007C4B82 /* NewQuestionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				76BBAC83254993060085790A /* Question+Factory.swift in Sources */,
 				76BBAC4C254991190085790A /* AppDelegate.swift in Sources */,
 				76BBAC4E254991190085790A /* SceneDelegate.swift in Sources */,
+				76D3236325597138007C4B82 /* NewQuestionViewController.swift in Sources */,
 				763DDBEE254C37450089AAB5 /* GameSession.swift in Sources */,
 				76D3232725513ACB007C4B82 /* GameSessionCaretaker.swift in Sources */,
 				76D3235625558090007C4B82 /* Observable.swift in Sources */,

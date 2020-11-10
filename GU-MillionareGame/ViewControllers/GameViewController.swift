@@ -26,17 +26,21 @@ class GameViewController: UIViewController {
     let game = Game.shared
     var order: Order?
     
-    let primalArray: [Question] = QuestionsFactory.createQuestions()
+    var userQuestions: [Question] = {
+        AddedQuestionsCaretaker().retrieveRecords()
+    }()
+    
+    var primalArray: [Question] = QuestionsFactory.createQuestions()
     var questionsArray: [Question] = []
     var questionsCount = Observable<Int>(1)
     var count = 1
-//    var questionsCount = 1
     
     var score = 0
     
     //MARK: - View life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        primalArray += userQuestions
         questionsArray = {
             configureOrder(in: primalArray, with: self.order ?? .direct)
         }()
@@ -103,7 +107,7 @@ class GameViewController: UIViewController {
             var orderedArray = [Question]()
             var count = mutableArray.count
             while !mutableArray.isEmpty {
-                if count > 0 {
+                if count >= 0 {
                     orderedArray.append(mutableArray.remove(at: Int(arc4random_uniform(UInt32(count)))))
                     count -= 1
                 }

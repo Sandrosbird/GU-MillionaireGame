@@ -13,6 +13,7 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     @IBAction func deleteResults(_ sender: UIBarButtonItem) {
         GameSessionCaretaker().deleteAll(records: resultsArray)
+        resultsArray = []
         tableView.reloadData()
     }
     @IBAction func backButtonDidTap(_ sender: UIBarButtonItem) {
